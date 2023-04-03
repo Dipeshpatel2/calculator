@@ -7,7 +7,7 @@ const allClear = document.querySelector(".clear")
 const numbers = document.querySelectorAll(".number")
 const operators = document.querySelectorAll(".operator")
 const deletes = document.querySelector(".delete")
-const equal = document.querySelector(".equal")
+const equal = document.querySelector(".equals")
 
 //when the buttons are pressed, declaring them as variables temporary stores them
 let firstNumber = ""
@@ -48,9 +48,20 @@ const handleClearClick = () =>{
     topScreen.innerText = ""
 }
 
-const handleCalculate = (firstNumb, oper, secondNumb) => {if oper === 
-
+const handleCalculate = (firstNumb, oper, secondNumb) =>
+{if (oper == '+') {
+    result = firstNumb + secondNumb;
 }
+else if (oper == '-') {
+    result = firstNumb - secondNumb;
+}
+else if (oper == '*') {
+    result = firstNumb * secondNumb;
+}
+else {
+    result = firstNumb / secondNumb;
+}
+
 //
 //loop over numbers array
 // inside the variable numbers, the forEach goes through the number array accesing each number button in the array
@@ -64,3 +75,5 @@ operators.forEach((operator) => {
 })
 
 allClear.addEventListener("click", handleClearClick)
+
+equal.addEventListener("click", handleCalculate)
