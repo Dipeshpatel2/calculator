@@ -10,9 +10,11 @@ const deletes = document.querySelector(".delete")
 const equal = document.querySelector(".equals")
 
 //when the buttons are pressed, declaring them as variables temporary stores them
-let firstNumber = ""
-let operator = ""
-let secondNubmer = ""
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
+let addDecimal = false;
+let result
 
 // creating this function means that everytime a button is pressed it will show in the console
 const handleNumberClick = (event) =>{
@@ -28,12 +30,16 @@ const handleNumberClick = (event) =>{
     }else if (screen.innerText == "*"){
         topScreen.innerText += " * "
         screen.innerText= ""    
-    }
-    const innerText = parseInt(event.target.innerText)
+    }else if (screen.innerText === '.' && !addDecimal){
+        addDecimal = true;
+    }else if (screen.innerText === '.' && addDecimal){
+        return;
+    }    
+    //originally below was const innerText = parseInt(event.target.innerText)
+    const innerText = (event.target.innerText)
     //screen.innerText = screen.innerText+innerText
     screen.innerText += innerText
 }
-
 const handleOperatorClick = (event) =>{
     const innerText = (event.target.innerText)
     operator = (innerText)
@@ -48,20 +54,22 @@ const handleClearClick = () =>{
     topScreen.innerText = ""
 }
 
-const handleCalculate = (firstNumb, oper, secondNumb) =>
-{if (oper == '+') {
-    result = firstNumb + secondNumb;
+const handleEqual = (firstNumber, operator, secondNumber) =>{
+secondNumber= screen.innerText
+    if (operator == '+') {
+    result = parseFloat(firstNumber) + parseFloat(secondNumber);
 }
-else if (oper == '-') {
-    result = firstNumb - secondNumb;
+else if (operator == '-') {
+    result = parseFloat(firstNumber) - parseFloat(secondNumber);
 }
-else if (oper == '*') {
-    result = firstNumb * secondNumb;
+else if (operator == '*') {
+    result = parseFloat(firstNumber) * parseFloat(secondNumber);
 }
 else {
-    result = firstNumb / secondNumb;
+    result = parseFloat(firstNumber) / parseFloat(secondNumber);
 }
-
+screen.innerText= result
+}
 //
 //loop over numbers array
 // inside the variable numbers, the forEach goes through the number array accesing each number button in the array
@@ -76,4 +84,6 @@ operators.forEach((operator) => {
 
 allClear.addEventListener("click", handleClearClick)
 
-equal.addEventListener("click", handleCalculate)
+equal.addEventListener("click", () =>{
+ handleEqual(firstNumber,operator,secondNumber)})
+
