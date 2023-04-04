@@ -54,6 +54,10 @@ const handleClearClick = () =>{
     topScreen.innerText = ""
 }
 
+const handleDelete = () =>{
+    
+}
+
 const handleEqual = (firstNumber, operator, secondNumber) =>{
 secondNumber= screen.innerText
     if (operator == '+') {
@@ -86,4 +90,6 @@ allClear.addEventListener("click", handleClearClick)
 
 equal.addEventListener("click", () =>{
  handleEqual(firstNumber,operator,secondNumber)})
+
+ deletes.addEventListener("click", handleDelete)
 

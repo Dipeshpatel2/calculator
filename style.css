@@ -18,7 +18,7 @@
   font-size: 2rem;
   border: 1px solid white;
   outline: none;
-  background-color: light greenyellow;
+  background-color: light gray;
   border: 2px solid black;
 }
 
@@ -32,6 +32,6 @@
 }
 
 .top-screen {
-  background-color: grey;
+  background-color: light grey;
   border: 2px solid black;
 }

@@ -56,6 +56,8 @@ var handleClearClick = function handleClearClick() {
   topScreen.innerText = "";
 };
 
+var handleDelete = function handleDelete() {};
+
 var handleEqual = function handleEqual(firstNumber, operator, secondNumber) {
   secondNumber = screen.innerText;
 
@@ -86,3 +88,4 @@ allClear.addEventListener("click", handleClearClick);
 equal.addEventListener("click", function () {
   handleEqual(firstNumber, operator, secondNumber);
 });
+deletes.addEventListener("click", handleDelete);

@@ -19,7 +19,8 @@
     font-size: 2rem;
     border: 1px solid white;
     outline: none;
-    background-color: green;
+    background-color:light gray;
+    border: 2px solid black;
 }
 
 .calculator-container > button:hover {
@@ -28,8 +29,10 @@
 
 .screen{
     background-color: beige;
+    border: 2px solid black;
 }
 
 .top-screen{
     background-color: light grey;
+    border: 2px solid black;
 }
